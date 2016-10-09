@@ -1,3 +1,7 @@
 # Dotfiles
 
-How-to bare git!
+# Resources
+
+## Fonts
+
+[powerline](https://github.com/powerline/powerline)
