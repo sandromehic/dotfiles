@@ -2,7 +2,7 @@
 	name = sandro
 	email = sandromehic@gmail.com
 [core]
-	editor = vim
+	editor = nvim
 [alias]
 	unstage = reset HEAD --
 	shorty = status --short --branch
