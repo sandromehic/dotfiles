@@ -1,0 +1,39 @@
+* Installed packages
+
+- bspwm
+- xorg-server
+- xorg-xinit
+- bspwm
+- sxhkd
+- alacritty
+- ttf-fira-code
+- xorg-xsetroot
+- openssh
+- firefox
+- rofi
+- xclip (clipboard manager)
+- zsh
+
+** Through git
+
+- antigen -> ~/.antigen
+
+** Fonts
+
+*** Installed
+
+- ttf-fira-code (terminal)
+- ttf-dejavu (system)
+
+*** Suggested
+
+- noto-fonts
+- ttf-bitstream-vera
+- ttf-croscore
+- ttf-droid
+- ttf-ibm-plex
+- ttf-liberation
+
+* Keep on configuring
+
+** ZSH
