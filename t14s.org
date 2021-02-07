@@ -45,8 +45,16 @@ Finish installing everything in doom (elixir-ls)
 
 Dev environment: asdf, elixir, elm, docker, docker-compose, kubectl, git-crypt
 
-** ZSH
+** TODO ZSH
 Check zsh config an dmaybe go through some guide
 
-** Exa
+** TODO Exa
 ls replacement is aliased to ~l~ and ~ll~, but not to ~la~ and others
+
+** TODO External keyboard on boot for LUKS
+Currently an external keyboard connected to the laptop is working, but not the
+one connected to the monitor.
+
+- try changing the order of keyboard in mkinitcpio hooks
+- try adding the modules as suggesetd in the wiki for usb c hub
+- try attaching the keyboard to laptop/hub/monitor
