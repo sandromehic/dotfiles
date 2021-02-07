@@ -34,5 +34,10 @@ fi
 /usr/bin/setxkbmap -option compose:rctrl
 /usr/bin/xsetroot -cursor_name left_ptr
 
+
+~/.fehbg &
+# picom &
+# gromit-mpx &
+
 sxhkd &
 exec bspwm

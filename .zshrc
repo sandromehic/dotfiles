@@ -64,8 +64,8 @@ ERL_AFLAGS="-kernel shell_history enabled -kernel shell_history_file_bytes 10240
 # build erlang documentation when installing with asdf
 export KERL_BUILD_DOCS=yes
 
-# # emacs doom
-# export PATH=~/doom-emacs/bin:$PATH
+# emacs doom
+export PATH=~/.emacs.d/bin:$PATH
 # export PATH=~/.elixir-ls/:$PATH
 
 # # add scripts folder to the path

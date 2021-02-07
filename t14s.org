@@ -13,6 +13,11 @@
 - rofi
 - xclip (clipboard manager)
 - zsh
+- emacs
+- ripgrep (doom emacs)
+- exa (ls replacement, la, ll)
+- feh
+- ranger
 
 ** Through git
 
@@ -34,6 +39,14 @@
 - ttf-ibm-plex
 - ttf-liberation
 
-* Keep on configuring
+* Next steps
+
+Finish installing everything in doom (elixir-ls)
+
+Dev environment: asdf, elixir, elm, docker, docker-compose, kubectl, git-crypt
 
 ** ZSH
+Check zsh config an dmaybe go through some guide
+
+** Exa
+ls replacement is aliased to ~l~ and ~ll~, but not to ~la~ and others
