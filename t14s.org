@@ -18,6 +18,9 @@
 - exa (ls replacement, la, ll)
 - feh
 - ranger
+- docker
+- docker-compose
+- polybar
 
 ** Through git
 
@@ -39,17 +42,73 @@
 - ttf-ibm-plex
 - ttf-liberation
 
-* Next steps
+* Services
+** Postgres in docker
+Based on this [[https://gist.github.com/tristanlins/4491f54ba06d18661fe2204592cdf54e][gist]]
+*** Prepare
+#+BEGIN_SRC bash
+# create config and data directory
+mkdir -p $HOME/docker/postgres/data
 
-Finish installing everything in doom (elixir-ls)
+# initially create the docker container
+docker run --restart=on-failure:5 \
+           --volume=/home/sandro/docker/postgres/data:/var/lib/postgresql/data \
+           --env=POSTGRES_PASSWORD=postgres \
+           --publish=5432:5432 \
+           --hostname=postgres \
+           --name=postgres \
+           --detach=true \
+           postgres:13-alpine
+#+END_SRC
+*** Systemd service file
+#+BEGIN_SRC
+# @file /etc/systemd/system/docker-postgres.service
+# @see https://docs.docker.com/articles/host_integration/
+
+[Unit]
+Description=postgres container
+Requires=docker.service
+After=docker.service
+
+[Service]
+Restart=always
+ExecStart=/usr/bin/docker start -a postgres
+ExecStop=/usr/bin/docker stop -t 60 postgres
+
+[Install]
+WantedBy=multi-user.target
+#+END_SRC
+*** Controls
+#+BEGIN_SRC bash
+# start container
+sudo systemctl start docker-postgres
+
+# stop container
+sudo systemctl stop docker-postgres
+
+# attach shell to container
+docker exec -it postgres bash
+
+# start psql connection
+docker exec -it postgres psql -h postgres -U postgres
+
+# dump a database
+docker exec postgres pg_dump -h postgres -U postgres ${table}
+
+# see the logs
+docker logs postgres
+
+# for more see
+# https://hub.docker.com/_/postgres/
+# https://docs.docker.com/articles/host_integration/
+#+END_SRC
+
+* Next steps
 
 Dev environment: asdf, elixir, elm, docker, docker-compose, kubectl, git-crypt
 
 ** TODO ZSH
-Check zsh config an dmaybe go through some guide
-
-** TODO Exa
-ls replacement is aliased to ~l~ and ~ll~, but not to ~la~ and others
+Check zsh config an maybe go through some guide
 
 ** TODO External keyboard on boot for LUKS
 Currently an external keyboard connected to the laptop is working, but not the
@@ -58,3 +117,6 @@ one connected to the monitor.
 - try changing the order of keyboard in mkinitcpio hooks
 - try adding the modules as suggesetd in the wiki for usb c hub
 - try attaching the keyboard to laptop/hub/monitor
+
+** TODO ASDF completion
+Not working even tough we use oh my zsh plugin

@@ -15,24 +15,12 @@ antigen bundles <<EOBUNDLES
   kubectl
 EOBUNDLES
 
-# Load the theme.
-antigen theme agnoster
-#antigen theme bureau
+antigen theme bureau
 
-# Tell antigen that you're done.
 antigen apply
 
 bindkey '^[k' history-substring-search-up
 bindkey '^[j' history-substring-search-down
-
-# # ASDF
-# . $HOME/.asdf/asdf.sh
-# . $HOME/.asdf/completions/asdf.bash
-
-# # kubectl autocompletion
-# if [ $commands[kubectl] ]; then
-#     source <(kubectl completion zsh)
-# fi
 
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
@@ -66,7 +54,7 @@ export KERL_BUILD_DOCS=yes
 
 # emacs doom
 export PATH=~/.emacs.d/bin:$PATH
-# export PATH=~/.elixir-ls/:$PATH
+export PATH=~/.elixir-ls/release/:$PATH
 
 # # add scripts folder to the path
 # export PATH=~/scripts:$PATH
@@ -77,20 +65,20 @@ export PATH=~/.emacs.d/bin:$PATH
 # . /usr/share/fzf/completion.zsh
 # . /usr/share/fzf/fzf-extras.zsh
 
-# # enable glob operation on files
-# # like removing all files except this one: rm -- ^this.one
-# setopt extendedglob
+# ssh agent on load
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+    ssh-agent > "$XDG_RUNTIME_DIR/ssh-agent.env"
+fi
+if [[ ! "$SSH_AUTH_SOCK" ]]; then
+    source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
+fi
 
-# # ssh agent on load
-# if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-#     ssh-agent > "$XDG_RUNTIME_DIR/ssh-agent.env"
+# # kubectl autocompletion
+# if [ $commands[kubectl] ]; then
+#     source <(kubectl completion zsh)
 # fi
-# if [[ ! "$SSH_AUTH_SOCK" ]]; then
-#     source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
-# fi
+
 
 # # driftrock
 # alias ssh_buildkite='gcloud beta compute --project "platform-156214" ssh --zone "us-central1-a" "buildkite-agent-blue-1"'
-# source /home/sandro/projects/driftrock/vagrant-devbox/.env
-# export PATH=$PATH:/home/sandro/projects/driftrock/vagrant-devbox
 
