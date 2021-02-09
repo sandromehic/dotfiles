@@ -25,6 +25,12 @@
 ** Through git
 
 - antigen -> ~/.antigen
+- asdf
+
+** Through asdf
+- erlang
+- elixir
+- nodejs
 
 ** Fonts
 
@@ -120,3 +126,8 @@ one connected to the monitor.
 
 ** TODO ASDF completion
 Not working even tough we use oh my zsh plugin
+* Rice
+** BSPWM
+** Alacritty
+** Polybar
+** Dunst

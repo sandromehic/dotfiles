@@ -59,11 +59,10 @@ export PATH=~/.elixir-ls/release/:$PATH
 # # add scripts folder to the path
 # export PATH=~/scripts:$PATH
 
-# # shell powerups
-# . ~/scripts/z/z.sh
-# . /usr/share/fzf/key-bindings.zsh
-# . /usr/share/fzf/completion.zsh
-# . /usr/share/fzf/fzf-extras.zsh
+# shell powerups
+. /usr/share/fzf/key-bindings.zsh
+. /usr/share/fzf/completion.zsh
+. /usr/share/fzf/fzf-extras.zsh
 
 # ssh agent on load
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then

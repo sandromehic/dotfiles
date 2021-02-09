@@ -35,6 +35,7 @@ fi
 /usr/bin/xsetroot -cursor_name left_ptr
 
 picom &
+dunst &
 # gromit-mpx &
 
 sxhkd &
