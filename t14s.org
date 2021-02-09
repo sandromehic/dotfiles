@@ -21,6 +21,16 @@
 - docker
 - docker-compose
 - polybar
+- libnotify
+- dunst
+- fzf
+- tmuxinator
+- spotify
+- kubectl
+- git-crypt
+- python2 (required by nodejs)
+- betterlockscreen
+
 
 ** Through git
 

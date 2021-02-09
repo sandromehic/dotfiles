@@ -13,6 +13,7 @@ antigen bundles <<EOBUNDLES
   vi-mode
   asdf
   kubectl
+  globalias
 EOBUNDLES
 
 antigen theme bureau
@@ -43,6 +44,8 @@ alias h='history'
 alias dc='docker-compose'
 alias l='exa'
 alias ll='exa -lgh --git'
+alias la='exa -lgha --git'
+alias glg='git lg'
 
 # don't allow tmux renaming of windows
 DISABLE_AUTO_TITLE="true"
@@ -56,13 +59,9 @@ export KERL_BUILD_DOCS=yes
 export PATH=~/.emacs.d/bin:$PATH
 export PATH=~/.elixir-ls/release/:$PATH
 
-# # add scripts folder to the path
-# export PATH=~/scripts:$PATH
-
 # shell powerups
 . /usr/share/fzf/key-bindings.zsh
 . /usr/share/fzf/completion.zsh
-. /usr/share/fzf/fzf-extras.zsh
 
 # ssh agent on load
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
@@ -72,12 +71,14 @@ if [[ ! "$SSH_AUTH_SOCK" ]]; then
     source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
 fi
 
-# # kubectl autocompletion
-# if [ $commands[kubectl] ]; then
-#     source <(kubectl completion zsh)
-# fi
+# kubectl autocompletion
+if [ $commands[kubectl] ]; then
+    source <(kubectl completion zsh)
+fi
 
 
 # # driftrock
 # alias ssh_buildkite='gcloud beta compute --project "platform-156214" ssh --zone "us-central1-a" "buildkite-agent-blue-1"'
 
+source /home/sandro/projects/driftrock/dev-environment/.env
+export PATH=$PATH:/home/sandro/projects/driftrock/dev-environment

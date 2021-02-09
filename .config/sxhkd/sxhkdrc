@@ -23,7 +23,7 @@ super + {F6,F7,F8}
 
 # lock screen
 ctrl + alt + l
-    slock
+    betterlockscreen -l blur
 
 #
 # bspwm hotkeys
