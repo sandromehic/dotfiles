@@ -16,9 +16,13 @@ antigen bundles <<EOBUNDLES
   globalias
 EOBUNDLES
 
-antigen theme bureau
+antigen theme iplaces/astro-zsh-theme
 
 antigen apply
+
+autoload -Uz compinit bashcompinit
+compinit
+bashcompinit
 
 bindkey '^[k' history-substring-search-up
 bindkey '^[j' history-substring-search-down
@@ -42,6 +46,8 @@ alias -g L='| less'
 alias -g X='| xmllint --format -'
 alias h='history'
 alias dc='docker-compose'
+alias dcl='docker-compose logs --follow'
+alias dcr='docker-compose run --rm'
 alias l='exa'
 alias ll='exa -lgh --git'
 alias la='exa -lgha --git'
@@ -63,13 +69,8 @@ export PATH=~/.elixir-ls/release/:$PATH
 . /usr/share/fzf/key-bindings.zsh
 . /usr/share/fzf/completion.zsh
 
-# ssh agent on load
-if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-    ssh-agent > "$XDG_RUNTIME_DIR/ssh-agent.env"
-fi
-if [[ ! "$SSH_AUTH_SOCK" ]]; then
-    source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
-fi
+# ssh agent as a service
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 # kubectl autocompletion
 if [ $commands[kubectl] ]; then
@@ -77,8 +78,9 @@ if [ $commands[kubectl] ]; then
 fi
 
 
-# # driftrock
+# driftrock
 # alias ssh_buildkite='gcloud beta compute --project "platform-156214" ssh --zone "us-central1-a" "buildkite-agent-blue-1"'
 
 source /home/sandro/projects/driftrock/dev-environment/.env
+source /home/sandro/projects/driftrock/dev-environment/lib/driftrock-completion
 export PATH=$PATH:/home/sandro/projects/driftrock/dev-environment

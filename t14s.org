@@ -30,10 +30,9 @@
 - git-crypt
 - python2 (required by nodejs)
 - betterlockscreen
-
+- gnu-netcat (nc)
 
 ** Through git
-
 - antigen -> ~/.antigen
 - asdf
 
@@ -45,12 +44,10 @@
 ** Fonts
 
 *** Installed
-
 - ttf-fira-code (terminal)
 - ttf-dejavu (system)
 
 *** Suggested
-
 - noto-fonts
 - ttf-bitstream-vera
 - ttf-croscore
@@ -120,8 +117,7 @@ docker logs postgres
 #+END_SRC
 
 * Next steps
-
-Dev environment: asdf, elixir, elm, docker, docker-compose, kubectl, git-crypt
+Dev environment: elm, postman
 
 ** TODO ZSH
 Check zsh config an maybe go through some guide
