@@ -1,0 +1,19 @@
+# dunst
+frame_color = "#0077b6"
+font = Roboto 14
+background = "#2B2D42"
+foreground = "#EDF2F4"
+urgent_foreground = "#EF233C"
+
+# polybar
+background = #002B2D42
+background-alt = #008D99AE
+foreground = #EDF2F4
+foreground-alt = #999999
+primary = #EF233C
+secondary = #0077b6
+alert = #D90429
+font-0 = "Roboto:style=Regular:pixelsize=11;1"
+font-1 = "Font Awesome 5 Brands,Font Awesome 5 Brands Regular:style=Regular:pixelsize=14;1"
+font-2 = "Font Awesome 5 Free,Font Awesome 5 Free Solid:style=Solid:pixelsize=14;1"
+font-3 = "Font Awesome 5 Free,Font Awesome 5 Free Regular:style=Regular:pixelsize=14;1"
