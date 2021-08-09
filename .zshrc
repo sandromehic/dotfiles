@@ -14,6 +14,7 @@ antigen bundles <<EOBUNDLES
   asdf
   kubectl
   globalias
+  agkozak/zsh-z
 EOBUNDLES
 
 antigen theme iplaces/astro-zsh-theme
@@ -48,6 +49,7 @@ alias h='history'
 alias dc='docker-compose'
 alias dcl='docker-compose logs --follow'
 alias dcr='docker-compose run --rm'
+alias dcre='docker-compose stop && docker-compose up -d'
 alias l='exa'
 alias ll='exa -lgh --git'
 alias la='exa -lgha --git'
@@ -79,8 +81,13 @@ fi
 
 
 # driftrock
-# alias ssh_buildkite='gcloud beta compute --project "platform-156214" ssh --zone "us-central1-a" "buildkite-agent-blue-1"'
+alias ssh_buildkite='gcloud beta compute --project "platform-156214" ssh --zone "us-central1-a" "buildkite-agent-blue-1"'
 
 source /home/sandro/projects/driftrock/dev-environment/.env
+source /home/sandro/projects/driftrock/dev-environment/.devenv
 source /home/sandro/projects/driftrock/dev-environment/lib/driftrock-completion
 export PATH=$PATH:/home/sandro/projects/driftrock/dev-environment
+
+# ruby gem home
+export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
+export PATH="$PATH:$GEM_HOME/bin"

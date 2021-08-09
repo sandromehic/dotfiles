@@ -25,6 +25,11 @@ super + {F6,F7,F8}
 ctrl + alt + l
     betterlockscreen -l blur
 
+# screenshot
+super + p
+    sleep 0.2; \
+    scrot -z -s $HOME/'Pictures/Screenshots/%Y-%m-%d_%H%M%S-$wx$h_scrot.png'
+
 #
 # bspwm hotkeys
 #
