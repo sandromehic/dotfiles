@@ -137,13 +137,3 @@ Not working even tough we use oh my zsh plugin
 ** Alacritty
 ** Polybar
 ** Dunst
-* Driftrock
-** Kubectl
-*** Login to US cluster
-for some reason it was put in another cluster (edited)
-you need to run this first
-$ gcloud container clusters get-credentials logging --zone us-central1-c
-and then you can do
-$ kubectl -n default get pods | grep crm
-then you can go back to the main cluster with
-$ gcloud container clusters get-credentials platform-europe-west3 --zone europe-west3-a
